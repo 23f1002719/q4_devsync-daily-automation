@@ -2,25 +2,28 @@ name: Daily Repository Update
 
 on:
   schedule:
-    - cron: '16 4 * * *'   # Runs daily at 04:16 UTC
-  workflow_dispatch:       # Allows manual trigger for testing
+    - cron: '23 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
-  update-repo:
+  daily-commit:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: 23f1002719@ds.study.iitm.ac.in - Daily commit step
+      - name: 23f1002719@ds.study.iitm.ac.in - Update Step
         run: |
-          echo "Last updated on $(date)" >> daily-log.txt
+          echo "Updated on $(date)" >> daily-log.txt
 
-      - name: Commit and push changes
+      - name: Commit and Push
         run: |
           git config --global user.name "Tirthankar Dey"
           git config --global user.email "23f1002719@ds.study.iitm.ac.in"
           git add .
-          git commit -m "Automated daily commit - $(date)" || echo "No changes to commit"
+          git commit -m "Automated daily commit on $(date)" || echo "No changes"
           git push
