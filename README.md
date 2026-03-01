@@ -1,1 +1,1 @@
-# q4_devsync-daily-automation
+[![CI Workflow](https://github.com/23f1002719/q4_devsync-daily-automation/actions/workflows/ci.yml/badge.svg)](https://github.com/23f1002719/q4_devsync-daily-automation/actions/workflows/ci.yml)# q4_devsync-daily-automation
